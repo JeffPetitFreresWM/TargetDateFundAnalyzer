@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebScraper.Controller">
+   <left>
+      <VBox id="entirepane" prefHeight="591.0" prefWidth="210.0" style="-fx-background-color: #35578f;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="48.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@retirement-plabology-logo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </ImageView>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Text fill="#63a2c6" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Desired Plan">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="50.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <ComboBox id="planDrop" prefHeight="28.0" prefWidth="214.0" style="-fx-background-color: #35578f;" />
+               </children>
+               <VBox.margin>
+                  <Insets top="7.0" />
+               </VBox.margin>
+            </VBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Information" textAlignment="CENTER" wrappingWidth="659.0352478027344">
+               <font>
+                  <Font size="23.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </Text>
+            <LineChart>
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="201.0">
+                     <children>
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2020 Info" textAlignment="CENTER" wrappingWidth="212.67497634887695" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="115.0" prefWidth="209.0">
+                     <children>
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2030 Info" textAlignment="CENTER" wrappingWidth="207.53356552124023" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="95.0" prefWidth="234.0">
+                     <children>
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2040 Info" textAlignment="CENTER" wrappingWidth="201.93353271484375" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2050 Info" textAlignment="CENTER" wrappingWidth="205.53357315063477" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2060 Info" textAlignment="CENTER" wrappingWidth="218.73357391357422" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
