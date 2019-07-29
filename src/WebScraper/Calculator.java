@@ -5,7 +5,7 @@ import javafx.concurrent.Task;
 import java.util.HashMap;
 
 import static WebScraper.Constants.*;
-import static WebScraper.Constants.BLACKROCK_2060;
+import static WebScraper.Constants.ALLIANZGI2050INTL;
 
 
 public class Calculator {
@@ -100,8 +100,129 @@ public class Calculator {
 
                 return mapOfWeightedBenchmarks;
 
+
+            case "JPMorgan":
+                double JPMorgan2020Ytd = weightBenchmarkYTD(JPMORGAN2020BOND,JPMORGAN2020EQUITY,JPMORGAN2020CASH,JPMORGAN2020INTL);
+                double JPMorgan20201Yr = weightBenchmark1Yr(JPMORGAN2020BOND,JPMORGAN2020EQUITY,JPMORGAN2020CASH,JPMORGAN2020INTL);
+                double JPMorgan2030Ytd = weightBenchmarkYTD(JPMORGAN2030BOND,JPMORGAN2030EQUITY,JPMORGAN2030CASH,JPMORGAN2030INTL);
+                double JPMorgan20301Yr = weightBenchmark1Yr(JPMORGAN2030BOND,JPMORGAN2030EQUITY,JPMORGAN2030CASH,JPMORGAN2030INTL);
+                double JPMorgan2040Ytd = weightBenchmarkYTD(JPMORGAN2040BOND,JPMORGAN2040EQUITY,JPMORGAN2040CASH,JPMORGAN2040INTL);
+                double JPMorgan20401Yr = weightBenchmark1Yr(JPMORGAN2040BOND,JPMORGAN2040EQUITY,JPMORGAN2040CASH,JPMORGAN2040INTL);
+                double JPMorgan2050Ytd = weightBenchmarkYTD(JPMORGAN2050BOND,JPMORGAN2050EQUITY,JPMORGAN2050CASH,JPMORGAN2050INTL);
+                double JPMorgan20501Yr = weightBenchmark1Yr(JPMORGAN2050BOND,JPMORGAN2050EQUITY,JPMORGAN2050CASH,JPMORGAN2050INTL);
+                double JPMorgan2060Ytd = weightBenchmarkYTD(JPMORGAN2060BOND,JPMORGAN2060EQUITY,JPMORGAN2060CASH,JPMORGAN2060INTL);
+                double JPMorgan20601Yr = weightBenchmark1Yr(JPMORGAN2060BOND,JPMORGAN2060EQUITY,JPMORGAN2060CASH,JPMORGAN2060INTL);
+                mapOfWeightedBenchmarks.put("JPMorgan2020BenchYtd",JPMorgan2020Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2030BenchYtd",JPMorgan2030Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2040BenchYtd",JPMorgan2040Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2050BenchYtd",JPMorgan2050Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2060BenchYtd",JPMorgan2060Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2020Bench1Yr",JPMorgan20201Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2030Bench1Yr",JPMorgan20301Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2040Bench1Yr",JPMorgan20401Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2050Bench1Yr",JPMorgan20501Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2060Bench1Yr",JPMorgan20601Yr);
+
+                return mapOfWeightedBenchmarks;
+
+
+            case "TRowe":
+                double TRowe2020Ytd = weightBenchmarkYTD(TROWE2020BOND,TROWE2020EQUITY,TROWE2020CASH,TROWE2020INTL);
+                double TRowe20201Yr = weightBenchmark1Yr(TROWE2020BOND,TROWE2020EQUITY,TROWE2020CASH,TROWE2020INTL);
+                double TRowe2030Ytd = weightBenchmarkYTD(TROWE2030BOND,TROWE2030EQUITY,TROWE2030CASH,TROWE2030INTL);
+                double TRowe20301Yr = weightBenchmark1Yr(TROWE2030BOND,TROWE2030EQUITY,TROWE2030CASH,TROWE2030INTL);
+                double TRowe2040Ytd = weightBenchmarkYTD(TROWE2040BOND,TROWE2040EQUITY,TROWE2040CASH,TROWE2040INTL);
+                double TRowe20401Yr = weightBenchmark1Yr(TROWE2040BOND,TROWE2040EQUITY,TROWE2040CASH,TROWE2040INTL);
+                double TRowe2050Ytd = weightBenchmarkYTD(TROWE2050BOND,TROWE2050EQUITY,TROWE2050CASH,TROWE2050INTL);
+                double TRowe20501Yr = weightBenchmark1Yr(TROWE2050BOND,TROWE2050EQUITY,TROWE2050CASH,TROWE2050INTL);
+                double TRowe2060Ytd = weightBenchmarkYTD(TROWE2060BOND,TROWE2060EQUITY,TROWE2060CASH,TROWE2060INTL);
+                double TRowe20601Yr = weightBenchmark1Yr(TROWE2060BOND,TROWE2060EQUITY,TROWE2060CASH,TROWE2060INTL);
+                mapOfWeightedBenchmarks.put("JPMorgan2020BenchYtd",TRowe2020Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2030BenchYtd",TRowe2030Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2040BenchYtd",TRowe2040Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2050BenchYtd",TRowe2050Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2060BenchYtd",TRowe2060Ytd);
+                mapOfWeightedBenchmarks.put("JPMorgan2020Bench1Yr",TRowe20201Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2030Bench1Yr",TRowe20301Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2040Bench1Yr",TRowe20401Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2050Bench1Yr",TRowe20501Yr);
+                mapOfWeightedBenchmarks.put("JPMorgan2060Bench1Yr",TRowe20601Yr);
+
+                return mapOfWeightedBenchmarks;
+
+
+            case "PIMCO":
+                double PIMCO2020Ytd = weightBenchmarkYTD(PIMCO2020BOND,PIMCO2020EQUITY,PIMCO2020CASH,PIMCO2020INTL);
+                double PIMCO20201Yr = weightBenchmark1Yr(PIMCO2020BOND,PIMCO2020EQUITY,PIMCO2020CASH,PIMCO2020INTL);
+                double PIMCO2030Ytd = weightBenchmarkYTD(PIMCO2030BOND,PIMCO2030EQUITY,PIMCO2030CASH,PIMCO2030INTL);
+                double PIMCO20301Yr = weightBenchmark1Yr(PIMCO2030BOND,PIMCO2030EQUITY,PIMCO2030CASH,PIMCO2030INTL);
+                double PIMCO2040Ytd = weightBenchmarkYTD(PIMCO2040BOND,PIMCO2040EQUITY,PIMCO2040CASH,PIMCO2040INTL);
+                double PIMCO20401Yr = weightBenchmark1Yr(PIMCO2040BOND,PIMCO2040EQUITY,PIMCO2040CASH,PIMCO2040INTL);
+                double PIMCO2050Ytd = weightBenchmarkYTD(PIMCO2050BOND,PIMCO2050EQUITY,PIMCO2050CASH,PIMCO2050INTL);
+                double PIMCO20501Yr = weightBenchmark1Yr(PIMCO2050BOND,PIMCO2050EQUITY,PIMCO2050CASH,PIMCO2050INTL);
+
+                mapOfWeightedBenchmarks.put("PIMCO2020BenchYtd",PIMCO2020Ytd);
+                mapOfWeightedBenchmarks.put("PIMCO2030BenchYtd",PIMCO2030Ytd);
+                mapOfWeightedBenchmarks.put("PIMCO2040BenchYtd",PIMCO2040Ytd);
+                mapOfWeightedBenchmarks.put("PIMCO2050BenchYtd",PIMCO2050Ytd);
+                mapOfWeightedBenchmarks.put("PIMCO2020Bench1Yr",PIMCO20201Yr);
+                mapOfWeightedBenchmarks.put("PIMCO2030Bench1Yr",PIMCO20301Yr);
+                mapOfWeightedBenchmarks.put("PIMCO2040Bench1Yr",PIMCO20401Yr);
+                mapOfWeightedBenchmarks.put("PIMCO2050Bench1Yr",PIMCO20501Yr);
+
+
+                return mapOfWeightedBenchmarks;
+
+            case "TIAA":
+                double TIAA2020Ytd = weightBenchmarkYTD(TIAA2020BOND,TIAA2020EQUITY,TIAA2020CASH,TIAA2020INTL);
+                double TIAA20201Yr = weightBenchmark1Yr(TIAA2020BOND,TIAA2020EQUITY,TIAA2020CASH,TIAA2020INTL);
+                double TIAA2030Ytd = weightBenchmarkYTD(TIAA2030BOND,TIAA2030EQUITY,TIAA2030CASH,TIAA2030INTL);
+                double TIAA20301Yr = weightBenchmark1Yr(TIAA2030BOND,TIAA2030EQUITY,TIAA2030CASH,TIAA2030INTL);
+                double TIAA2040Ytd = weightBenchmarkYTD(TIAA2040BOND,TIAA2040EQUITY,TIAA2040CASH,TIAA2040INTL);
+                double TIAA20401Yr = weightBenchmark1Yr(TIAA2040BOND,TIAA2040EQUITY,TIAA2040CASH,TIAA2040INTL);
+                double TIAA2050Ytd = weightBenchmarkYTD(TIAA2050BOND,TIAA2050EQUITY,TIAA2050CASH,TIAA2050INTL);
+                double TIAA20501Yr = weightBenchmark1Yr(TIAA2050BOND,TIAA2050EQUITY,TIAA2050CASH,TIAA2050INTL);
+                double TIAA2060Ytd = weightBenchmarkYTD(TIAA2060BOND,TIAA2060EQUITY,TIAA2060CASH,TIAA2060INTL);
+                double TIAA20601Yr = weightBenchmark1Yr(TIAA2060BOND,TIAA2060EQUITY,TIAA2060CASH,TIAA2060INTL);
+                mapOfWeightedBenchmarks.put("TIAA2020BenchYtd",TIAA2020Ytd);
+                mapOfWeightedBenchmarks.put("TIAA2030BenchYtd",TIAA2030Ytd);
+                mapOfWeightedBenchmarks.put("TIAA2040BenchYtd",TIAA2040Ytd);
+                mapOfWeightedBenchmarks.put("TIAA2050BenchYtd",TIAA2050Ytd);
+                mapOfWeightedBenchmarks.put("TIAA2060BenchYtd",TIAA2060Ytd);
+                mapOfWeightedBenchmarks.put("TIAA2020Bench1Yr",TIAA20201Yr);
+                mapOfWeightedBenchmarks.put("TIAA2030Bench1Yr",TIAA20301Yr);
+                mapOfWeightedBenchmarks.put("TIAA2040Bench1Yr",TIAA20401Yr);
+                mapOfWeightedBenchmarks.put("TIAA2050Bench1Yr",TIAA20501Yr);
+                mapOfWeightedBenchmarks.put("TIAA2060Bench1Yr",TIAA20601Yr);
+
+                return mapOfWeightedBenchmarks;
+
+            case "Allianz":
+                double Allianz2020Ytd = weightBenchmarkYTD(ALLIANZGI2020BOND,ALLIANZGI2020EQUITY,ALLIANZGI2020CASH,ALLIANZGI2020INTL);
+                double Allianz20201Yr = weightBenchmark1Yr(ALLIANZGI2020BOND,ALLIANZGI2020EQUITY,ALLIANZGI2020CASH,ALLIANZGI2020INTL);
+                double Allianz2030Ytd = weightBenchmarkYTD(ALLIANZGI2030BOND,ALLIANZGI2030EQUITY,ALLIANZGI2030CASH,ALLIANZGI2030INTL);
+                double Allianz20301Yr = weightBenchmark1Yr(ALLIANZGI2030BOND,ALLIANZGI2030EQUITY,ALLIANZGI2030CASH,ALLIANZGI2030INTL);
+                double Allianz2040Ytd = weightBenchmarkYTD(ALLIANZGI2040BOND,ALLIANZGI2040EQUITY,ALLIANZGI2040CASH,ALLIANZGI2040INTL);
+                double Allianz20401Yr = weightBenchmark1Yr(ALLIANZGI2040BOND,ALLIANZGI2040EQUITY,ALLIANZGI2040CASH,ALLIANZGI2040INTL);
+                double Allianz2050Ytd = weightBenchmarkYTD(ALLIANZGI2050BOND,ALLIANZGI2050EQUITY,ALLIANZGI2050CASH,ALLIANZGI2050INTL);
+                double Allianz20501Yr = weightBenchmark1Yr(ALLIANZGI2050BOND,ALLIANZGI2050EQUITY,ALLIANZGI2050CASH,ALLIANZGI2050INTL);
+
+                mapOfWeightedBenchmarks.put("Allianz2020BenchYtd",Allianz2020Ytd);
+                mapOfWeightedBenchmarks.put("Allianz2030BenchYtd",Allianz2030Ytd);
+                mapOfWeightedBenchmarks.put("Allianz2040BenchYtd",Allianz2040Ytd);
+                mapOfWeightedBenchmarks.put("Allianz2050BenchYtd",Allianz2050Ytd);
+
+                mapOfWeightedBenchmarks.put("Allianz2020Bench1Yr",Allianz20201Yr);
+                mapOfWeightedBenchmarks.put("Allianz2030Bench1Yr",Allianz20301Yr);
+                mapOfWeightedBenchmarks.put("Allianz2040Bench1Yr",Allianz20401Yr);
+                mapOfWeightedBenchmarks.put("Allianz2050Bench1Yr",Allianz20501Yr);
+
+
+                return mapOfWeightedBenchmarks;
+            default:
+                return null;
         }
-        return null;
+
     }
 
     public double weightBenchmarkYTD(double bond,double equity,double cash , double intl){
@@ -243,6 +364,143 @@ public class Calculator {
                     indexInfoYTD.put(BLACKROCK_2060,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2060,fundInfo[1]);
                 }).start();
+                break;
+
+            case "JPMorgan":
+
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getVanguard(JPMORGAN_2020);
+                    indexInfoYTD.put(JPMORGAN_2020,fundInfo[0]);
+                    indexInfo1Yr.put(JPMORGAN_2020,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2030);
+                    indexInfoYTD.put(JPMORGAN_2030,fundInfo[0]);
+                    indexInfo1Yr.put(JPMORGAN_2030,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2040);
+                    indexInfoYTD.put(JPMORGAN_2040,fundInfo[0]);
+                    indexInfo1Yr.put(JPMORGAN_2040,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2050);
+                    indexInfoYTD.put(JPMORGAN_2050,fundInfo[0]);
+                    indexInfo1Yr.put(JPMORGAN_2050,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2060);
+                    indexInfoYTD.put(JPMORGAN_2060,fundInfo[0]);
+                    indexInfo1Yr.put(JPMORGAN_2060,fundInfo[1]);
+                }).start();
+                break;
+
+            case "TRowe":
+
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getVanguard(TROWE_2020);
+                    indexInfoYTD.put(TROWE_2020,fundInfo[0]);
+                    indexInfo1Yr.put(TROWE_2020,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2030);
+                    indexInfoYTD.put(TROWE_2030,fundInfo[0]);
+                    indexInfo1Yr.put(TROWE_2030,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2040);
+                    indexInfoYTD.put(TROWE_2040,fundInfo[0]);
+                    indexInfo1Yr.put(TROWE_2040,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2050);
+                    indexInfoYTD.put(TROWE_2050,fundInfo[0]);
+                    indexInfo1Yr.put(TROWE_2050,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2060);
+                    indexInfoYTD.put(TROWE_2060,fundInfo[0]);
+                    indexInfo1Yr.put(TROWE_2060,fundInfo[1]);
+                }).start();
+                break;
+
+            case "PIMCO":
+
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getVanguard(PIMCO_2020);
+                    indexInfoYTD.put(PIMCO_2020,fundInfo[0]);
+                    indexInfo1Yr.put(PIMCO_2020,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2030);
+                    indexInfoYTD.put(PIMCO_2030,fundInfo[0]);
+                    indexInfo1Yr.put(PIMCO_2030,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2040);
+                    indexInfoYTD.put(PIMCO_2040,fundInfo[0]);
+                    indexInfo1Yr.put(PIMCO_2040,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2050);
+                    indexInfoYTD.put(PIMCO_2050,fundInfo[0]);
+                    indexInfo1Yr.put(PIMCO_2050,fundInfo[1]);
+                }).start();
+
+                break;
+
+            case "TIAA":
+
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getVanguard(TIAA_2020);
+                    indexInfoYTD.put(TIAA_2020,fundInfo[0]);
+                    indexInfo1Yr.put(TIAA_2020,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2030);
+                    indexInfoYTD.put(TIAA_2030,fundInfo[0]);
+                    indexInfo1Yr.put(TIAA_2030,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2040);
+                    indexInfoYTD.put(TIAA_2040,fundInfo[0]);
+                    indexInfo1Yr.put(TIAA_2040,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2050);
+                    indexInfoYTD.put(TIAA_2050,fundInfo[0]);
+                    indexInfo1Yr.put(TIAA_2050,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2060);
+                    indexInfoYTD.put(TIAA_2060,fundInfo[0]);
+                    indexInfo1Yr.put(TIAA_2060,fundInfo[1]);
+                }).start();
+                break;
+
+            case "Allianz":
+
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getVanguard(ALLIANZGI_2020);
+                    indexInfoYTD.put(ALLIANZGI_2020,fundInfo[0]);
+                    indexInfo1Yr.put(ALLIANZGI_2020,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2030);
+                    indexInfoYTD.put(ALLIANZGI_2030,fundInfo[0]);
+                    indexInfo1Yr.put(ALLIANZGI_2030,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2040);
+                    indexInfoYTD.put(ALLIANZGI_2040,fundInfo[0]);
+                    indexInfo1Yr.put(ALLIANZGI_2040,fundInfo[1]);
+                }).start();
+                new Thread(() -> {
+                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2050);
+                    indexInfoYTD.put(ALLIANZGI_2050,fundInfo[0]);
+                    indexInfo1Yr.put(ALLIANZGI_2050,fundInfo[1]);
+                }).start();
+
                 break;
         }
     }

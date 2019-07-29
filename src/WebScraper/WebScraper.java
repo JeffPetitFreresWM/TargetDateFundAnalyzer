@@ -777,6 +777,110 @@ public class WebScraper {
 
 
     }
+    public Float[] getMFS(String year) {
+        chrome_options = new ChromeOptions();
+        chrome_options.addArguments("--headless");
+        WebDriver drive = new ChromeDriver(chrome_options);
+        WebDriverWait wait = new WebDriverWait(drive, 10);
+        Float info[] = new Float[2];
+        WebElement yearToDate;
+        WebElement oneYear;
+        switch (year) {
+
+            case (MFS_2020):
+
+                drive.get(MFS_2020);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"highcharts-0h4qjc2-0\"]/div[2]/span[1]/div[2]")));
+                yearToDate = drive.findElement(By.cssSelector("#highcharts-0h4qjc2-0 > div.highcharts-axis-labels.highcharts-xaxis-labels > span:nth-child(1) > div:nth-child(2)"));
+                if (this.percentage(yearToDate.getAttribute("innerText"))) {
+                    info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
+                }
+                else {
+                    info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
+                }
+                oneYear = drive.findElement(By.cssSelector("#highcharts-0h4qjc2-0 > div.highcharts-axis-labels.highcharts-xaxis-labels > span:nth-child(2) > div:nth-child(2)"));
+                if (this.percentage(oneYear.getAttribute("innerText"))) {
+                    info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
+                }
+                else{
+                    info[1] = Float.parseFloat(oneYear.getAttribute("innerText"));
+                }
+                drive.quit();
+                return info;
+
+            case (ALLIANZGI_2030):
+
+                drive.get(ALLIANZGI_2030);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
+                if (this.percentage(yearToDate.getAttribute("innerText"))) {
+                    info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
+                }
+                else {
+                    info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
+                }
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
+                if (this.percentage(oneYear.getAttribute("innerText"))) {
+                    info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
+                }
+                else{
+                    info[1] = Float.parseFloat(oneYear.getAttribute("innerText"));
+                }
+                drive.quit();
+                return info;
+
+
+            case (ALLIANZGI_2040):
+
+                drive.get(ALLIANZGI_2040);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
+                if (this.percentage(yearToDate.getAttribute("innerText"))) {
+                    info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
+                }
+                else {
+                    info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
+                }
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
+                if (this.percentage(oneYear.getAttribute("innerText"))) {
+                    info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
+                }
+                else{
+                    info[1] = Float.parseFloat(oneYear.getAttribute("innerText"));
+                }
+                drive.quit();
+                return info;
+
+            case (ALLIANZGI_2050):
+
+                drive.get(ALLIANZGI_2050);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
+                if (this.percentage(yearToDate.getAttribute("innerText"))) {
+                    info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
+                }
+                else {
+                    info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
+                }
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
+                if (this.percentage(oneYear.getAttribute("innerText"))) {
+                    info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
+                }
+                else{
+                    info[1] = Float.parseFloat(oneYear.getAttribute("innerText"));
+                }
+                drive.quit();
+                return info;
+
+
+
+            default:
+                return info;
+
+        }
+
+
+    }
 
     public Float[] getAllianz(String year) {
         chrome_options = new ChromeOptions();
@@ -791,15 +895,15 @@ public class WebScraper {
             case (ALLIANZGI_2020):
 
                 drive.get(ALLIANZGI_2020);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]")));
-                yearToDate = drive.findElement(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[2]/table/tbody/tr[5]/td[2]/span"));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
                 }
                 else {
                     info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
                 }
-                oneYear = drive.findElement(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]"));
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
                 if (this.percentage(oneYear.getAttribute("innerText"))) {
                     info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
                 }
@@ -809,18 +913,18 @@ public class WebScraper {
                 drive.quit();
                 return info;
 
-            case (TIAA_2030):
+            case (ALLIANZGI_2030):
 
-                drive.get(TIAA_2030);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/h3")));
-                yearToDate = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[2]/div/span"));
+                drive.get(ALLIANZGI_2030);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
                 }
                 else {
                     info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
                 }
-                oneYear = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[5]/div/span"));
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
                 if (this.percentage(oneYear.getAttribute("innerText"))) {
                     info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
                 }
@@ -831,18 +935,18 @@ public class WebScraper {
                 return info;
 
 
-            case (TIAA_2040):
+            case (ALLIANZGI_2040):
 
-                drive.get(TIAA_2040);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/h3")));
-                yearToDate = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[2]/div/span"));
+                drive.get(ALLIANZGI_2040);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
                 }
                 else {
                     info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
                 }
-                oneYear = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[5]/div/span"));
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
                 if (this.percentage(oneYear.getAttribute("innerText"))) {
                     info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
                 }
@@ -852,18 +956,18 @@ public class WebScraper {
                 drive.quit();
                 return info;
 
-            case (TIAA_2050):
+            case (ALLIANZGI_2050):
 
-                drive.get(TIAA_2050);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/h3")));
-                yearToDate = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[2]/div/span"));
+                drive.get(ALLIANZGI_2050);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/div[2]/div/div/div[1]/div/div/div[3]/table/tbody/tr[1]/td[2]/span")));
+                yearToDate = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div.l-grid__column-large-5.l-grid__column-medium-6.offset-large-1 > table > tbody > tr:nth-child(5) > td:nth-child(2) > span"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
                 }
                 else {
                     info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
                 }
-                oneYear = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[5]/div/span"));
+                oneYear = drive.findElement(By.cssSelector("#Performance > div.fund-component.distribution-fund-details > div > div > div.key-facts-content > div > div > div:nth-child(3) > table > tbody > tr:nth-child(1) > td:nth-child(2) > span"));
                 if (this.percentage(oneYear.getAttribute("innerText"))) {
                     info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
                 }
@@ -873,26 +977,6 @@ public class WebScraper {
                 drive.quit();
                 return info;
 
-            case (TIAA_2060):
-
-                drive.get(TIAA_2060);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"Performance\"]/h3")));
-                yearToDate = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[2]/div/span"));
-                if (this.percentage(yearToDate.getAttribute("innerText"))) {
-                    info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
-                }
-                else {
-                    info[0] = Float.parseFloat(yearToDate.getAttribute("innerText"));
-                }
-                oneYear = drive.findElement(By.xpath("//*[@id=\"table_average_annual_total_returns__6_1\"]/tbody/tr[1]/td[5]/div/span"));
-                if (this.percentage(oneYear.getAttribute("innerText"))) {
-                    info[1] = Float.parseFloat(format(oneYear.getAttribute("innerText")));
-                }
-                else{
-                    info[1] = Float.parseFloat(oneYear.getAttribute("innerText"));
-                }
-                drive.quit();
-                return info;
 
 
             default:
@@ -1025,7 +1109,7 @@ public class WebScraper {
 
         WebScraper scraper = new WebScraper();
         scraper.setDriver();
-        Float[] performanceInfo = scraper.getAllianz(ALLIANZGI_2020);
+        Float[] performanceInfo = scraper.getMFS(MFS_2020);
 //        Float[] bond = scraper.getBenchmarkBond();
 //        Float[] equity = scraper.getBenchmarkEquity();
 //        Float[] cash = scraper.getBenchmarkCash();

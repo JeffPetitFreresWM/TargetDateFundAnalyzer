@@ -17,7 +17,7 @@ public class Constants {
         AMERICAN_CENTURY, VANGUARD, TROWE_PRICE, BLACKROCK;
 
     }
-    public static final String[] Fundslist = {"American Century","Vanguard","T.Rowe Price","BlackRock"};
+    public static final String[] Fundslist = {"American Century","Vanguard","TRowe Price","BlackRock","Allianz","MFS","TIAA", "JP Morgan", "PIMCO"};
                             /////////////////////////////////// BENCHMARKS //////////////////////////////////////
 
     public static final String EQUITY = "https://investor.vanguard.com/mutual-funds/profile/performance/vitsx";
@@ -148,11 +148,11 @@ public class Constants {
     public static final String TROWE_2050 = "https://www.troweprice.com/personal-investing/tools/fund-research/TRRMX#content-summary";
     public static final String TROWE_2060 = "https://www.troweprice.com/personal-investing/tools/fund-research/TRRLX#content-summary";
 
-    public static final double TROWE2020EUITY = .377;
-    public static final double TROWE2030EUITY = .4773;
-    public static final double TROWE2040EUITY = .5487;
-    public static final double TROWE2050EUITY = .5708;
-    public static final double TROWE2060EUITY = .5743;
+    public static final double TROWE2020EQUITY = .377;
+    public static final double TROWE2030EQUITY = .4773;
+    public static final double TROWE2040EQUITY = .5487;
+    public static final double TROWE2050EQUITY = .5708;
+    public static final double TROWE2060EQUITY = .5743;
 
     public static final double TROWE2020CASH = .005;
     public static final double TROWE2030CASH = .0093;
