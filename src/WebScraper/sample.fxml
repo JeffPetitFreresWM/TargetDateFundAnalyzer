@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -14,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="871.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebScraper.Controller">
+<BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebScraper.Controller">
    <left>
       <VBox id="entirepane" prefHeight="591.0" prefWidth="210.0" style="-fx-background-color: #35578f;" BorderPane.alignment="CENTER">
          <children>
@@ -23,12 +24,12 @@
                   <Image url="@retirement-plabology-logo.png" />
                </image>
                <VBox.margin>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  <Insets left="45.0" top="15.0" />
                </VBox.margin>
             </ImageView>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Text fill="#63a2c6" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Desired Plan">
+                  <Text fill="#f5f0f0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select Your Desired Plan">
                      <VBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="50.0" />
                      </VBox.margin>
@@ -36,8 +37,11 @@
                         <Font size="19.0" />
                      </font>
                   </Text>
-                  <ComboBox id="planDrop" fx:id="dropdown" prefHeight="28.0" prefWidth="214.0" style="-fx-background-color: #35578f;" />
-                  <Button fx:id="analyzeButton" mnemonicParsing="false" onAction="#analyze" prefHeight="57.0" prefWidth="214.0" style="-fx-background-color: #35578f;" text="Analyze Fund">
+                  <ComboBox id="planDrop" fx:id="dropdown" prefHeight="28.0" prefWidth="214.0" style="-fx-background-color: #35578f;">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin></ComboBox>
+                  <Button fx:id="analyzeButton" mnemonicParsing="false" onAction="#analyze" prefHeight="57.0" prefWidth="214.0" style="-fx-background-color: #35578f;" text="Analyze Fund" textFill="#f5f0f0">
                      <opaqueInsets>
                         <Insets />
                      </opaqueInsets>
@@ -47,14 +51,17 @@
                   <Insets top="7.0" />
                </VBox.margin>
             </VBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <ProgressIndicator fx:id="progressbar" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="193.0" progress="0.0" />
+               </children></VBox>
          </children>
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="624.0" prefWidth="788.0" style="-fx-background-color: #f5f0f0;" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Information" textAlignment="CENTER" wrappingWidth="659.0352478027344">
+            <Text fx:id="Title" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Information" textAlignment="CENTER" wrappingWidth="659.0352478027344">
                <font>
                   <Font size="23.0" />
                </font>
@@ -64,42 +71,97 @@
             </Text>
             <LineChart fx:id="lineGraph">
               <xAxis>
-                <CategoryAxis side="BOTTOM" />
+                <NumberAxis side="BOTTOM" fx:id="xAxis"/>
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis side="LEFT" fx:id="yAxis"/>
               </yAxis>
             </LineChart>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="121.0" prefWidth="940.0" style="-fx-background-color: #f5f0f0;">
                <children>
-                  <VBox id="2020text" fx:id="info2020" prefHeight="100.0" prefWidth="201.0">
+                  <VBox id="2020text" fx:id="heading2020" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2020 Info" textAlignment="CENTER" wrappingWidth="212.67497634887695" />
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2020 Info" textAlignment="CENTER" wrappingWidth="212.67497634887695">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Text>
+                        <Text fx:id="info2020" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="220.38310050964355">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </VBox>
-                  <VBox id="2030text" fx:id="info2030" prefHeight="115.0" prefWidth="209.0">
+                  <VBox id="2030text" fx:id="heading2030" prefHeight="115.0" prefWidth="209.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2030 Info" textAlignment="CENTER" wrappingWidth="207.53356552124023" />
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2030 Info" textAlignment="CENTER" wrappingWidth="207.53356552124023">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Text>
+                        <Text fx:id="info2030" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="207.18304443359375">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </VBox>
-                  <VBox id="2040text" fx:id="info2040" prefHeight="95.0" prefWidth="234.0">
+                  <VBox id="2040text" fx:id="heading2040" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2040 Info" textAlignment="CENTER" wrappingWidth="201.93353271484375" />
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2040 Info" textAlignment="CENTER" wrappingWidth="230.73358154296875" VBox.vgrow="ALWAYS">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Text>
+                        <Text fx:id="info2040" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="234.55587196350098">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox prefHeight="132.0" prefWidth="940.0">
                <children>
-                  <VBox id="2050text" fx:id="info2050" prefHeight="200.0" prefWidth="100.0">
+                  <VBox id="2050text" fx:id="heading2050" prefHeight="96.0" prefWidth="216.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2050 Info" textAlignment="CENTER" wrappingWidth="205.53357315063477" />
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2050 Info" textAlignment="CENTER" wrappingWidth="205.53357315063477">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Text>
+                        <Text fx:id="info2050" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="217.5831127166748">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </VBox>
-                  <VBox id="2060text" fx:id="info2060" prefHeight="200.0" prefWidth="100.0">
+                  <VBox id="2060text" fx:id="heading2060" prefHeight="100.0" prefWidth="202.0" style="-fx-background-color: #ffffff;">
                      <children>
-                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2060 Info" textAlignment="CENTER" wrappingWidth="218.73357391357422" />
+                        <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2060 Info" textAlignment="CENTER" wrappingWidth="218.73357391357422">
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin></Text>
+                        <Text fx:id="info2060" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="207.58306312561035">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
                      </children>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
