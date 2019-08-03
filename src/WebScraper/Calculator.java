@@ -78,6 +78,7 @@ public class Calculator {
 
             case "Vanguard":
                 double Vanguard2020Ytd = weightBenchmarkYTD(VANGUARD2020BOND,VANGUARD2020EQUITY,VANGUARD2020CASH,VANGUARD2020INTL);
+                System.out.println("Getting vanguard");
                 double Vanguard20201Yr = weightBenchmark1Yr(VANGUARD2020BOND,VANGUARD2020EQUITY,VANGUARD2020CASH,VANGUARD2020INTL);
                 double Vanguard2030Ytd = weightBenchmarkYTD(VANGUARD2030BOND,VANGUARD2030EQUITY,VANGUARD2030CASH,VANGUARD2030INTL);
                 double Vanguard20301Yr = weightBenchmark1Yr(VANGUARD2030BOND,VANGUARD2030EQUITY,VANGUARD2030CASH,VANGUARD2030INTL);
@@ -240,36 +241,36 @@ public class Calculator {
     }
 
     public void setBenchmarkInfo(){
-        new Thread(() -> {
+//        new Thread(() -> {
             Float[] bond = scrape.getBenchmarkBond();
             benchmarkInfo.put("benchmarkBondYtd",bond[0]);
             benchmarkInfo.put("benchmarkBond1Yr",bond[1]);
-
-
-        }).start();
-        new Thread(() -> {
+//
+//
+//        }).start();
+//        new Thread(() -> {
             Float[] equity = scrape.getBenchmarkEquity();
             benchmarkInfo.put("benchmarkEquityYtd",equity[0]);
             benchmarkInfo.put("benchmarkEquity1Yr",equity[1]);
 
 
-        }).start();
-
-        new Thread(() -> {
+//        }).start();
+//
+//        new Thread(() -> {
             Float[] cash = scrape.getBenchmarkCash();
 
             benchmarkInfo.put("benchmarkCashYtd",cash[0]);
             benchmarkInfo.put("benchmarkCash1Yr",cash[1]);
 
 
-        }).start();
-        new Thread(() -> {
+//        }).start();
+//        new Thread(() -> {
 
             Float[] intl = scrape.getBenchmarkInternational();
             benchmarkInfo.put("benchmarkIntlYtd",intl[0]);
             benchmarkInfo.put("benchmarkIntl1Yr",intl[1]);
 
-        }).start();
+//        }).start();
 
 
 
@@ -311,27 +312,32 @@ public class Calculator {
             case "Vanguard":
 
                 new Thread(() -> {
+                    System.out.println("First thread");
                     Float[] fundInfo = scrape.getVanguard(VANGUARD_2020);
                     indexInfoYTD.put(VANGUARD_2020,fundInfo[0]);
                     indexInfo1Yr.put(VANGUARD_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(VANGUARD_2030);
+                    System.out.println("SEcond thread");
+                    Float[] fundInfo = scrape.getVanguard(VANGUARD_2030);
                     indexInfoYTD.put(VANGUARD_2030,fundInfo[0]);
                     indexInfo1Yr.put(VANGUARD_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(VANGUARD_2040);
+                    System.out.println("third thread");
+                    Float[] fundInfo = scrape.getVanguard(VANGUARD_2040);
                     indexInfoYTD.put(VANGUARD_2040,fundInfo[0]);
                     indexInfo1Yr.put(VANGUARD_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(VANGUARD_2050);
+                    System.out.println("Fourth thread");
+                    Float[] fundInfo = scrape.getVanguard(VANGUARD_2050);
                     indexInfoYTD.put(VANGUARD_2050,fundInfo[0]);
                     indexInfo1Yr.put(VANGUARD_2050,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(VANGUARD_2060);
+                    System.out.println("fifth thread");
+                    Float[] fundInfo = scrape.getVanguard(VANGUARD_2060);
                     indexInfoYTD.put(VANGUARD_2060,fundInfo[0]);
                     indexInfo1Yr.put(VANGUARD_2060,fundInfo[1]);
                 }).start();
@@ -340,27 +346,27 @@ public class Calculator {
             case "BlackRock":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(BLACKROCK_2020);
+                    Float[] fundInfo = scrape.getBlackRock(BLACKROCK_2020);
                     indexInfoYTD.put(BLACKROCK_2020,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(BLACKROCK_2030);
+                    Float[] fundInfo = scrape.getBlackRock(BLACKROCK_2030);
                     indexInfoYTD.put(BLACKROCK_2030,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(BLACKROCK_2040);
+                    Float[] fundInfo = scrape.getBlackRock(BLACKROCK_2040);
                     indexInfoYTD.put(BLACKROCK_2040,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(BLACKROCK_2050);
+                    Float[] fundInfo = scrape.getBlackRock(BLACKROCK_2050);
                     indexInfoYTD.put(BLACKROCK_2050,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2050,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(BLACKROCK_2060);
+                    Float[] fundInfo = scrape.getBlackRock(BLACKROCK_2060);
                     indexInfoYTD.put(BLACKROCK_2060,fundInfo[0]);
                     indexInfo1Yr.put(BLACKROCK_2060,fundInfo[1]);
                 }).start();
@@ -369,17 +375,17 @@ public class Calculator {
             case "JPMorgan":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(JPMORGAN_2020);
+                    Float[] fundInfo = scrape.getJPMorgan(JPMORGAN_2020);
                     indexInfoYTD.put(JPMORGAN_2020,fundInfo[0]);
                     indexInfo1Yr.put(JPMORGAN_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2030);
+                    Float[] fundInfo = scrape.getJPMorgan(JPMORGAN_2030);
                     indexInfoYTD.put(JPMORGAN_2030,fundInfo[0]);
                     indexInfo1Yr.put(JPMORGAN_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2040);
+                    Float[] fundInfo = scrape.getJPMorgan(JPMORGAN_2040);
                     indexInfoYTD.put(JPMORGAN_2040,fundInfo[0]);
                     indexInfo1Yr.put(JPMORGAN_2040,fundInfo[1]);
                 }).start();
@@ -389,7 +395,7 @@ public class Calculator {
                     indexInfo1Yr.put(JPMORGAN_2050,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(JPMORGAN_2060);
+                    Float[] fundInfo = scrape.getJPMorgan(JPMORGAN_2060);
                     indexInfoYTD.put(JPMORGAN_2060,fundInfo[0]);
                     indexInfo1Yr.put(JPMORGAN_2060,fundInfo[1]);
                 }).start();
@@ -398,27 +404,27 @@ public class Calculator {
             case "TRowe":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(TROWE_2020);
+                    Float[] fundInfo = scrape.getTrowe(TROWE_2020);
                     indexInfoYTD.put(TROWE_2020,fundInfo[0]);
                     indexInfo1Yr.put(TROWE_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2030);
+                    Float[] fundInfo = scrape.getTrowe(TROWE_2030);
                     indexInfoYTD.put(TROWE_2030,fundInfo[0]);
                     indexInfo1Yr.put(TROWE_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2040);
+                    Float[] fundInfo = scrape.getTrowe(TROWE_2040);
                     indexInfoYTD.put(TROWE_2040,fundInfo[0]);
                     indexInfo1Yr.put(TROWE_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2050);
+                    Float[] fundInfo = scrape.getTrowe(TROWE_2050);
                     indexInfoYTD.put(TROWE_2050,fundInfo[0]);
                     indexInfo1Yr.put(TROWE_2050,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TROWE_2060);
+                    Float[] fundInfo = scrape.getTrowe(TROWE_2060);
                     indexInfoYTD.put(TROWE_2060,fundInfo[0]);
                     indexInfo1Yr.put(TROWE_2060,fundInfo[1]);
                 }).start();
@@ -427,22 +433,22 @@ public class Calculator {
             case "PIMCO":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(PIMCO_2020);
+                    Float[] fundInfo = scrape.getPIMCO(PIMCO_2020);
                     indexInfoYTD.put(PIMCO_2020,fundInfo[0]);
                     indexInfo1Yr.put(PIMCO_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2030);
+                    Float[] fundInfo = scrape.getPIMCO(PIMCO_2030);
                     indexInfoYTD.put(PIMCO_2030,fundInfo[0]);
                     indexInfo1Yr.put(PIMCO_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2040);
+                    Float[] fundInfo = scrape.getPIMCO(PIMCO_2040);
                     indexInfoYTD.put(PIMCO_2040,fundInfo[0]);
                     indexInfo1Yr.put(PIMCO_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(PIMCO_2050);
+                    Float[] fundInfo = scrape.getPIMCO(PIMCO_2050);
                     indexInfoYTD.put(PIMCO_2050,fundInfo[0]);
                     indexInfo1Yr.put(PIMCO_2050,fundInfo[1]);
                 }).start();
@@ -452,27 +458,27 @@ public class Calculator {
             case "TIAA":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(TIAA_2020);
+                    Float[] fundInfo = scrape.getTiaa(TIAA_2020);
                     indexInfoYTD.put(TIAA_2020,fundInfo[0]);
                     indexInfo1Yr.put(TIAA_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2030);
+                    Float[] fundInfo = scrape.getTiaa(TIAA_2030);
                     indexInfoYTD.put(TIAA_2030,fundInfo[0]);
                     indexInfo1Yr.put(TIAA_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2040);
+                    Float[] fundInfo = scrape.getTiaa(TIAA_2040);
                     indexInfoYTD.put(TIAA_2040,fundInfo[0]);
                     indexInfo1Yr.put(TIAA_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2050);
+                    Float[] fundInfo = scrape.getTiaa(TIAA_2050);
                     indexInfoYTD.put(TIAA_2050,fundInfo[0]);
                     indexInfo1Yr.put(TIAA_2050,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(TIAA_2060);
+                    Float[] fundInfo = scrape.getTiaa(TIAA_2060);
                     indexInfoYTD.put(TIAA_2060,fundInfo[0]);
                     indexInfo1Yr.put(TIAA_2060,fundInfo[1]);
                 }).start();
@@ -481,22 +487,22 @@ public class Calculator {
             case "Allianz":
 
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getVanguard(ALLIANZGI_2020);
+                    Float[] fundInfo = scrape.getAllianz(ALLIANZGI_2020);
                     indexInfoYTD.put(ALLIANZGI_2020,fundInfo[0]);
                     indexInfo1Yr.put(ALLIANZGI_2020,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2030);
+                    Float[] fundInfo = scrape.getAllianz(ALLIANZGI_2030);
                     indexInfoYTD.put(ALLIANZGI_2030,fundInfo[0]);
                     indexInfo1Yr.put(ALLIANZGI_2030,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2040);
+                    Float[] fundInfo = scrape.getAllianz(ALLIANZGI_2040);
                     indexInfoYTD.put(ALLIANZGI_2040,fundInfo[0]);
                     indexInfo1Yr.put(ALLIANZGI_2040,fundInfo[1]);
                 }).start();
                 new Thread(() -> {
-                    Float[] fundInfo = scrape.getAmericanCentury(ALLIANZGI_2050);
+                    Float[] fundInfo = scrape.getAllianz(ALLIANZGI_2050);
                     indexInfoYTD.put(ALLIANZGI_2050,fundInfo[0]);
                     indexInfo1Yr.put(ALLIANZGI_2050,fundInfo[1]);
                 }).start();
@@ -508,8 +514,8 @@ public class Calculator {
     public void runCalc(){
 //        new Thread(() -> this.setBenchmarkInfo()).start();
 //        new Thread(() -> this.runScrapeTargetDate()).start();
-        this.setBenchmarkInfo();
         this.runScrapeTargetDate();
+        this.setBenchmarkInfo();
         //double[] list = this.calculateWeightedIndex();
 //        for (double item : list){
 //            System.out.println(item);

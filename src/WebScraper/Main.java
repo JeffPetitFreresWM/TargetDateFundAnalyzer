@@ -13,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Target Date Fund Analyzer");
-        primaryStage.setScene(new Scene(root, 926, 624));
+        primaryStage.setScene(new Scene(root, 1000, 8000));
         primaryStage.show();
 
 

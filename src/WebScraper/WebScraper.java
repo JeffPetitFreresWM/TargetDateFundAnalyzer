@@ -202,10 +202,11 @@ public class WebScraper {
         switch (year) {
 
             case (VANGUARD_2020):
-
+                System.out.println("Getting vanguard 2020");
                 drive.get(VANGUARD_2020);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]"));
+
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
                 }
@@ -218,7 +219,7 @@ public class WebScraper {
                 return info;
 
             case (VANGUARD_2030):
-
+                System.out.println("Getting vanguard 2020");
                 drive.get(VANGUARD_2030);
 
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]")));
@@ -236,7 +237,7 @@ public class WebScraper {
 
 
             case (VANGUARD_2040):
-
+                System.out.println("Getting vanguard 2020");
                 drive.get(VANGUARD_2040);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]"));
@@ -252,7 +253,7 @@ public class WebScraper {
                 return info;
 
             case (VANGUARD_2050):
-
+                System.out.println("Getting vanguard 2020");
                 drive.get(VANGUARD_2050);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]"));
@@ -268,7 +269,7 @@ public class WebScraper {
                 return info;
 
             case (VANGUARD_2060):
-
+                System.out.println("Getting vanguard 2020");
                 drive.get(VANGUARD_2060);
                 wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"displayPerformanceHomePage\"]/div[6]/div/div/div[2]/div[1]/div[2]/div/table/tbody/tr[1]/td[2]"));
@@ -1109,7 +1110,7 @@ public class WebScraper {
 
         WebScraper scraper = new WebScraper();
         scraper.setDriver();
-        Float[] performanceInfo = scraper.getMFS(MFS_2020);
+        Float[] performanceInfo = scraper.getVanguard(VANGUARD_2030);
 //        Float[] bond = scraper.getBenchmarkBond();
 //        Float[] equity = scraper.getBenchmarkEquity();
 //        Float[] cash = scraper.getBenchmarkCash();

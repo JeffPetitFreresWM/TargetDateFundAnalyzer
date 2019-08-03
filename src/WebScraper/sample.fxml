@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
@@ -17,7 +16,7 @@
 
 <BorderPane id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="926.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WebScraper.Controller">
    <left>
-      <VBox id="entirepane" prefHeight="591.0" prefWidth="210.0" style="-fx-background-color: #35578f;" BorderPane.alignment="CENTER">
+      <VBox id="entirepane" prefHeight="624.0" prefWidth="209.0" style="-fx-background-color: #35578f;" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="48.0" fitWidth="152.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -59,7 +58,7 @@
       </VBox>
    </left>
    <center>
-      <VBox prefHeight="624.0" prefWidth="788.0" style="-fx-background-color: #f5f0f0;" BorderPane.alignment="CENTER">
+      <VBox style="-fx-background-color: #f5f0f0;" BorderPane.alignment="CENTER">
          <children>
             <Text fx:id="Title" fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Information" textAlignment="CENTER" wrappingWidth="659.0352478027344">
                <font>
@@ -69,17 +68,17 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <LineChart fx:id="lineGraph">
+            <LineChart fx:id="lineGraph" prefHeight="376.0" prefWidth="1167.0">
               <xAxis>
-                <NumberAxis side="BOTTOM" fx:id="xAxis"/>
+                <NumberAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" fx:id="yAxis"/>
+                <NumberAxis fx:id="yAxis" side="LEFT" />
               </yAxis>
             </LineChart>
-            <HBox prefHeight="121.0" prefWidth="940.0" style="-fx-background-color: #f5f0f0;">
+            <HBox prefHeight="362.0" prefWidth="1151.0" style="-fx-background-color: #f5f0f0;">
                <children>
-                  <VBox id="2020text" fx:id="heading2020" style="-fx-background-color: #ffffff;">
+                  <VBox id="2020text" fx:id="heading2020" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="277.0" prefWidth="220.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2020 Info" textAlignment="CENTER" wrappingWidth="212.67497634887695">
                            <VBox.margin>
@@ -95,7 +94,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox id="2030text" fx:id="heading2030" prefHeight="115.0" prefWidth="209.0" style="-fx-background-color: #ffffff;">
+                  <VBox id="2030text" fx:id="heading2030" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="277.0" prefWidth="292.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2030 Info" textAlignment="CENTER" wrappingWidth="207.53356552124023">
                            <VBox.margin>
@@ -111,7 +110,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </VBox>
-                  <VBox id="2040text" fx:id="heading2040" style="-fx-background-color: #ffffff;">
+                  <VBox id="2040text" fx:id="heading2040" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="235.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2040 Info" textAlignment="CENTER" wrappingWidth="230.73358154296875" VBox.vgrow="ALWAYS">
                            <VBox.margin>
@@ -127,10 +126,6 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                   </VBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="132.0" prefWidth="940.0">
-               <children>
                   <VBox id="2050text" fx:id="heading2050" prefHeight="96.0" prefWidth="216.0" style="-fx-background-color: #ffffff;">
                      <children>
                         <Text fill="#35578f" strokeType="OUTSIDE" strokeWidth="0.0" text="2050 Info" textAlignment="CENTER" wrappingWidth="205.53357315063477">
