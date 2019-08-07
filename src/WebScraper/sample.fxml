@@ -68,7 +68,7 @@
                   <Insets top="5.0" />
                </VBox.margin>
             </Text>
-            <LineChart fx:id="lineGraph" prefHeight="376.0" prefWidth="1167.0">
+            <LineChart fx:id="lineGraph" prefHeight="376.0" prefWidth="1167.0" styleClass="style.css">
               <xAxis>
                 <NumberAxis side="BOTTOM" fx:id="xAxis" />
               </xAxis>

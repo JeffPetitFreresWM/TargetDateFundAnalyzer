@@ -42,11 +42,27 @@ public class Constants {
     public static final double AMERICANCENTURY2050EQUITY = .5837;
     public static final double AMERICANCENTURY2060EQUITY = .6164;
 
+    public static final double[] AmericanCenturyEquityList = {
+            AMERICANCENTURY2020EQUITY,
+            AMERICANCENTURY2030EQUITY,
+            AMERICANCENTURY2040EQUITY,
+            AMERICANCENTURY2050EQUITY,
+            AMERICANCENTURY2060EQUITY,
+    };
+
     public static final double AMERICANCENTURY2020CASH = .095;
     public static final double AMERICANCENTURY2030CASH = .05;
     public static final double AMERICANCENTURY2040CASH = .045;
     public static final double AMERICANCENTURY2050CASH = 0;
     public static final double AMERICANCENTURY2060CASH = 0;
+
+    public static final double[] AmericanCenturyCashList = {
+            AMERICANCENTURY2020CASH,
+            AMERICANCENTURY2030CASH,
+            AMERICANCENTURY2040CASH,
+            AMERICANCENTURY2050CASH,
+            AMERICANCENTURY2060CASH,
+    };
 
     public static final double AMERICANCENTURY2020BOND = 0.445;
     public static final double AMERICANCENTURY2030BOND = 0.3875;
@@ -54,11 +70,27 @@ public class Constants {
     public static final double AMERICANCENTURY2050BOND = 0.195;
     public static final double AMERICANCENTURY2060BOND = 0.15;
 
+    public static final double[] AmericanCenturyBondList = {
+            AMERICANCENTURY2020BOND,
+            AMERICANCENTURY2030BOND,
+            AMERICANCENTURY2040BOND,
+            AMERICANCENTURY2050BOND,
+            AMERICANCENTURY2060BOND,
+    };
+
     public static final double AMERICANCENTURY2020INTL = .0976;
     public static final double AMERICANCENTURY2030INTL = .1529;
     public static final double AMERICANCENTURY2040INTL = .189;
     public static final double AMERICANCENTURY2050INTL = .2213;
     public static final double AMERICANCENTURY2060INTL = .2336;
+
+    public static final double[] AmericanCenturyINTLList = {
+            AMERICANCENTURY2020INTL,
+            AMERICANCENTURY2030INTL,
+            AMERICANCENTURY2040INTL,
+            AMERICANCENTURY2050INTL,
+            AMERICANCENTURY2060INTL,
+    };
 
 
 

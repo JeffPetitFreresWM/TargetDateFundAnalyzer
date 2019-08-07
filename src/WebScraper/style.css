@@ -1,0 +1,9 @@
+.chart {
+    -fx-padding: 10px;
+}
+.chart-content {
+    -fx-padding: 30px
+}
+.chart-symbol {
+    -fx-shape: "M0,4 L2,4 L4, 8 L7, 0 L9,0 L4, 11 Z";
+}
