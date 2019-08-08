@@ -19,6 +19,7 @@ public class Calculator {
     ArrayList<Double> benchmarklist1yr = new ArrayList<>();
     ArrayList<Float> indexlistytd = new ArrayList<>();
     ArrayList<Float> indexlist1yr = new ArrayList<>();
+    HashMap<String,Double> mapOfWeightedBenchmarks = new HashMap<>();
     String fund;
 
     public Calculator(String fund){
@@ -28,42 +29,23 @@ public class Calculator {
 
     }
 
+    public void weightedBenchmarksHelper(double[] Bondlist, double[] EquityList, double[] CashList, double[] IntlList, String[] fund1yrlist, String[] fundytdlist){
+        for (int i =0; i < Bondlist.length; i++){
+            Double yrval = weightBenchmark1Yr(Bondlist[i],EquityList[i],CashList[i],IntlList[i]);
+            Double ytdval = weightBenchmarkYTD(Bondlist[i],EquityList[i],CashList[i],IntlList[i]);
+            mapOfWeightedBenchmarks.put(fund1yrlist[i],yrval);
+            benchmarklist1yr.add(yrval);
+            mapOfWeightedBenchmarks.put(fundytdlist[i],ytdval);
+            benchmarklistytd.add(ytdval);
+        }
+    }
+
     public HashMap<String,Double> calculateWeightedIndex(){
-        HashMap<String,Double> mapOfWeightedBenchmarks = new HashMap<>();
+
         switch (this.fund){
             case "American Century":
 
-                double American2020Ytd = weightBenchmarkYTD(AMERICANCENTURY2020BOND,AMERICANCENTURY2020EQUITY,AMERICANCENTURY2020CASH,AMERICANCENTURY2020INTL);
-                double American20201Yr = weightBenchmark1Yr(AMERICANCENTURY2020BOND,AMERICANCENTURY2020EQUITY,AMERICANCENTURY2020CASH,AMERICANCENTURY2020INTL);
-                double American2030Ytd = weightBenchmarkYTD(AMERICANCENTURY2030BOND,AMERICANCENTURY2030EQUITY,AMERICANCENTURY2030CASH,AMERICANCENTURY2030INTL);
-                double American20301Yr = weightBenchmark1Yr(AMERICANCENTURY2030BOND,AMERICANCENTURY2030EQUITY,AMERICANCENTURY2030CASH,AMERICANCENTURY2030INTL);
-                double American2040Ytd = weightBenchmarkYTD(AMERICANCENTURY2040BOND,AMERICANCENTURY2040EQUITY,AMERICANCENTURY2040CASH,AMERICANCENTURY2040INTL);
-                double American20401Yr = weightBenchmark1Yr(AMERICANCENTURY2040BOND,AMERICANCENTURY2040EQUITY,AMERICANCENTURY2040CASH,AMERICANCENTURY2040INTL);
-                double American2050Ytd = weightBenchmarkYTD(AMERICANCENTURY2050BOND,AMERICANCENTURY2050EQUITY,AMERICANCENTURY2050CASH,AMERICANCENTURY2050INTL);
-                double American20501Yr = weightBenchmark1Yr(AMERICANCENTURY2050BOND,AMERICANCENTURY2050EQUITY,AMERICANCENTURY2050CASH,AMERICANCENTURY2050INTL);
-                double American2060Ytd = weightBenchmarkYTD(AMERICANCENTURY2060BOND,AMERICANCENTURY2060EQUITY,AMERICANCENTURY2060CASH,AMERICANCENTURY2060INTL);
-                double American20601Yr = weightBenchmark1Yr(AMERICANCENTURY2060BOND,AMERICANCENTURY2060EQUITY,AMERICANCENTURY2060CASH,AMERICANCENTURY2060INTL);
-
-                mapOfWeightedBenchmarks.put("American2020BenchYtd",American2020Ytd);
-                benchmarklistytd.add(American2020Ytd);
-                mapOfWeightedBenchmarks.put("American2030BenchYtd",American2030Ytd);
-                benchmarklistytd.add(American2030Ytd);
-                mapOfWeightedBenchmarks.put("American2040BenchYtd",American2040Ytd);
-                benchmarklistytd.add(American2040Ytd);
-                mapOfWeightedBenchmarks.put("American2050BenchYtd",American2050Ytd);
-                benchmarklistytd.add(American2050Ytd);
-                mapOfWeightedBenchmarks.put("American2060BenchYtd",American2060Ytd);
-                benchmarklistytd.add(American2060Ytd);
-                mapOfWeightedBenchmarks.put("American2020Bench1Yr",American20201Yr);
-                benchmarklist1yr.add(American20201Yr);
-                mapOfWeightedBenchmarks.put("American2030Bench1Yr",American20301Yr);
-                benchmarklist1yr.add(American20301Yr);
-                mapOfWeightedBenchmarks.put("American2040Bench1Yr",American20401Yr);
-                benchmarklist1yr.add(American20401Yr);
-                mapOfWeightedBenchmarks.put("American2050Bench1Yr",American20501Yr);
-                benchmarklist1yr.add(American20501Yr);
-                mapOfWeightedBenchmarks.put("American2060Bench1Yr",American20601Yr);
-                benchmarklist1yr.add(American20601Yr);
+                weightedBenchmarksHelper(AmericanCenturyBondList,AmericanCenturyEquityList,AmericanCenturyCashList,AmericanCenturyINTLList,AmericanBench1yrList,AmericanBenchYtdList);
 
                 return mapOfWeightedBenchmarks;
 
@@ -172,7 +154,7 @@ public class Calculator {
                 return mapOfWeightedBenchmarks;
 
 
-            case "TRowe":
+            case "TRowe Price":
                 double TRowe2020Ytd = weightBenchmarkYTD(TROWE2020BOND,TROWE2020EQUITY,TROWE2020CASH,TROWE2020INTL);
                 double TRowe20201Yr = weightBenchmark1Yr(TROWE2020BOND,TROWE2020EQUITY,TROWE2020CASH,TROWE2020INTL);
                 double TRowe2030Ytd = weightBenchmarkYTD(TROWE2030BOND,TROWE2030EQUITY,TROWE2030CASH,TROWE2030INTL);
@@ -486,7 +468,7 @@ public class Calculator {
                 }).start();
                 break;
 
-            case "TRowe":
+            case "TRowe Price":
 
                 new Thread(() -> {
                     Float[] fundInfo = scrape.getTrowe(TROWE_2020);

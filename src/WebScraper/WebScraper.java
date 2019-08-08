@@ -308,7 +308,7 @@ public class WebScraper {
             case (TROWE_2020):
 
                 drive.get(TROWE_2020);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div")));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[1]/div/table/tbody/tr[1]/td[3]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
@@ -330,7 +330,7 @@ public class WebScraper {
             case (TROWE_2030):
 
                 drive.get(TROWE_2030);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='performanceTabs']")));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[1]/div/table/tbody/tr[1]/td[3]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
@@ -352,7 +352,7 @@ public class WebScraper {
             case (TROWE_2040):
 
                 drive.get(TROWE_2040);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div")));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[1]/div/table/tbody/tr[1]/td[3]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
@@ -373,7 +373,7 @@ public class WebScraper {
             case (TROWE_2050):
 
                 drive.get(TROWE_2050);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div")));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[1]/div/table/tbody/tr[1]/td[3]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
@@ -394,7 +394,7 @@ public class WebScraper {
             case (TROWE_2060):
 
                 drive.get(TROWE_2060);
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div")));
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[1]/div/table/tbody/tr[1]/td[3]")));
                 yearToDate = drive.findElement(By.xpath("//*[@id=\"content-summary\"]/div[2]/div[3]/div/div/div[2]/div[1]/table/tbody/tr[1]/td[2]"));
                 if (this.percentage(yearToDate.getAttribute("innerText"))) {
                     info[0] = Float.parseFloat(format(yearToDate.getAttribute("innerText")));
@@ -1110,7 +1110,7 @@ public class WebScraper {
 
         WebScraper scraper = new WebScraper();
         scraper.setDriver();
-        Float[] performanceInfo = scraper.getVanguard(VANGUARD_2030);
+        Float[] performanceInfo = scraper.getTrowe(TROWE_2030);
 //        Float[] bond = scraper.getBenchmarkBond();
 //        Float[] equity = scraper.getBenchmarkEquity();
 //        Float[] cash = scraper.getBenchmarkCash();

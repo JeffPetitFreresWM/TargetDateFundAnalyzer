@@ -93,6 +93,7 @@ public class Controller {
     @FXML
     private ProgressIndicator progressbar;
 
+    private HashMap<Integer,Text> textmap = new HashMap<Integer,Text>();
 
     private Calculator calc;
     private HashMap<String,Double> benchmarkInfo;
@@ -136,7 +137,11 @@ public class Controller {
 
     @FXML
     void initialize() {
-
+        textmap.put(20,info2020);
+        textmap.put(30,info2030);
+        textmap.put(40,info2040);
+        textmap.put(50,info2050);
+        textmap.put(60,info2060);
         progressbar.setVisible(false);
         ObservableList<String> options =
                 FXCollections.observableArrayList(
@@ -156,67 +161,63 @@ public class Controller {
 
     }
 
+    void populateText(String[] fundlist, String[] benchytd, String[] bench1yr){
+
+        for (int i =20, j = 0; j < fundlist.length; j++,i+=10){
+
+            textmap.get(i).setText("One Year: " + indexInfo1Yr.get(fundlist[j]) +
+                    "\nYear To Date: " + indexInfoYTD.get(fundlist[j]) +
+                    "\nBenchmark One Year: " + Math.round(benchmarkInfo.get(bench1yr[j]) * 100.0) / 100.0 +
+                    "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get(benchytd[j]) * 100.0) / 100.0);
+        }
+    }
+
     void setAllText(){
 
         switch (dropdown.getValue()) {
             case "American Century":
 
                 Title.setText("American Century Performance Analysis");
-                info2020.setText("One Year: " + indexInfo1Yr.get(AMERICAN_CENTURY_2020) +
-                        "\nYear To Date: " + indexInfoYTD.get(AMERICAN_CENTURY_2020) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("American2020Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("American2020BenchYtd") * 100.0) / 100.0);
-
-                info2030.setText("One Year: " + indexInfo1Yr.get(AMERICAN_CENTURY_2030) +
-                        "\nYear To Date: " + indexInfoYTD.get(AMERICAN_CENTURY_2030) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("American2030Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("American2030BenchYtd") * 100.0) / 100.0);
-
-                info2040.setText("One Year: " + indexInfo1Yr.get(AMERICAN_CENTURY_2040) +
-                        "\nYear To Date: " + indexInfoYTD.get(AMERICAN_CENTURY_2040) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("American2040Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("American2040BenchYtd") * 100.0) / 100.0);
-
-                info2050.setText("Year One Year: " + indexInfo1Yr.get(AMERICAN_CENTURY_2050) +
-                        "\nYear To Date: " + indexInfoYTD.get(AMERICAN_CENTURY_2050) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("American2050Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("American2050BenchYtd") * 100) / 100.0);
-
-                info2060.setText("One Year: " + indexInfo1Yr.get(AMERICAN_CENTURY_2060) +
-                        "\nYear To Date: " + indexInfoYTD.get(AMERICAN_CENTURY_2060) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("American2060Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("American2060BenchYtd") * 100.0) / 100.0);
+                populateText(AmericanList,AmericanBenchYtdList,AmericanBench1yrList);
                 break;
 
             case "Vanguard":
                 Title.setText("Vanguard Performance Analysis");
-                info2020.setText("One Year: " + indexInfo1Yr.get(VANGUARD_2020) +
-                        "\nYear To Date: " + indexInfoYTD.get(VANGUARD_2020) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("Vanguard2020Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("Vanguard2020BenchYtd") * 100.0) / 100.0);
-
-                info2030.setText("One Year: " + indexInfo1Yr.get(VANGUARD_2030) +
-                        "\nYear To Date: " + indexInfoYTD.get(VANGUARD_2030) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("Vanguard2030Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("Vanguard2030BenchYtd") * 100.0) / 100.0);
-
-                info2040.setText("One Year: " + indexInfo1Yr.get(VANGUARD_2040) +
-                        "\nYear To Date: " + indexInfoYTD.get(VANGUARD_2040) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("Vanguard2040Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("Vanguard2040BenchYtd") * 100.0) / 100.0);
-
-                info2050.setText("Year One Year: " + indexInfo1Yr.get(VANGUARD_2050) +
-                        "\nYear To Date: " + indexInfoYTD.get(VANGUARD_2050) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("Vanguard2050Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("Vanguard2050BenchYtd") * 100) / 100.0);
-
-                info2060.setText("One Year: " + indexInfo1Yr.get(VANGUARD_2060) +
-                        "\nYear To Date: " + indexInfoYTD.get(VANGUARD_2060) +
-                        "\nBenchmark One Year: " + Math.round(benchmarkInfo.get("Vanguard2060Bench1Yr") * 100.0) / 100.0 +
-                        "\nBenchmark Year To Date: " + Math.round(benchmarkInfo.get("Vanguard2060BenchYtd") * 100.0) / 100.0);
+                populateText(VanguardList,VanguardYtdList,Vanguard1yrList);
                 break;
 
+            case "BlackRock":
+                Title.setText("BlackRock Performance Analysis");
+                populateText(BlackrockList,BlackRockYtdList,BlackRock1yrList);
+                break;
 
+            case "TRowe Price":
+                Title.setText("TRowe Price Performance Analysis");
+                populateText(TRoweList,TroweYtdList,TRowe1yrList);
+                break;
+
+            case "PIMCO":
+                Title.setText("PIMCO Performance Analysis");
+                populateText(PimcoList,PIMCOYtdList,PIMCO1yrList);
+                break;
+
+            case "TIAA":
+                Title.setText("TIAA Performance Analysis");
+                populateText(TIAAList,TIAAYtdList,TIAA1yrList);
+                break;
+            case "Allianz":
+                Title.setText("Allianz Performance Analysis");
+                populateText(AllianzList,AllianzYtdList,Allianz1yrList);
+                break;
+            case "JP Morgan":
+                Title.setText("JP Morgan Performance Analysis");
+                populateText(JpMorganList,JPMorganYtdList,JPMorgan1yrList);
+                break;
+
+            case "MFS":
+                Title.setText("MFS Performance Analysis");
+                populateText(MFSList,MFSYtdList,MFS1yrList);
+                break;
         }
 
     }
@@ -230,8 +231,69 @@ public class Controller {
 
     }
 
+    private void populateData(XYChart.Series<Number, Number> benchmarkYtd,
+                              XYChart.Series<Number, Number> fundYtd,
+                              XYChart.Series<Number, Number> benchmark1Yr,
+                              XYChart.Series<Number, Number> fund1Yr,
+                              ArrayList<Double> ytd,
+                              ArrayList<Double> yr,
+                              ArrayList<Float> indexytd,
+                              ArrayList<Float> index1yr,
+                              String[] fundlist,
+                              LineChart<Number, Number> lineGraph){
+        ytd = calc.getBenchmarklistytd();
+        yr = calc.getBenchmarklist1yr();
+        listPopulate(ytd,yr,indexytd,index1yr,fundlist);
+        for (int xvalue = 2020, counter = 0;  counter < fundlist.length; counter++,xvalue+=10){
+
+            XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<>(xvalue,ytd.get(counter));
+            XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
+
+            if (indexytd.get(counter) > ytd.get(counter)){
+                labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
+            }
+
+            else{
+                labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
+            }
+
+            benchmarkYtd.getData().add(benchmarkytd);
+            fundYtd.getData().add(fundytd);
+
+            XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
+            XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
+            if (index1yr.get(counter) > yr.get(counter)){
+                labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
+            }
+            else{
+                labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
+            }
+            benchmark1Yr.getData().add(benchmark1yr);
+            fund1Yr.getData().add(fund1yr);
+
+        }
+        lineGraph.getData().add(benchmarkYtd);
+        lineGraph.getData().add(fundYtd);
+        lineGraph.getData().add(benchmark1Yr);
+        lineGraph.getData().add(fund1Yr);
+    }
+
+    private void listPopulate(ArrayList<Double> ytd,
+            ArrayList<Double> yr,
+            ArrayList<Float> indexytd,
+            ArrayList<Float> index1yr,
+                              String[] fundlist){
+
+        for (String item : fundlist){
+            indexytd.add(indexInfoYTD.get(item));
+            index1yr.add(indexInfo1Yr.get(item));
+
+        }
+
+    }
 
     void populateGraph(){
+
         XYChart.Series<Number, Number> benchmarkYtd = new XYChart.Series<>();
         benchmarkYtd.setName("Benchmark YTD");
         XYChart.Series<Number, Number> fundYtd = new XYChart.Series<>();
@@ -240,436 +302,69 @@ public class Controller {
         benchmark1Yr.setName("Benchmark 1Yr");
         XYChart.Series<Number, Number> fund1Yr = new XYChart.Series<>();
         fund1Yr.setName("Fund 1Yr");
-        ArrayList<Double> ytd;
-        ArrayList<Double> yr;
-        ArrayList<Float> indexytd;
-        ArrayList<Float> index1yr;
+        ArrayList<Double> ytd = new ArrayList<>();
+        ArrayList<Double> yr = new ArrayList<>();
+        ArrayList<Float> indexytd = new ArrayList<>();
+        ArrayList<Float> index1yr = new ArrayList<>();
+
         switch (dropdown.getValue()){
             case "American Century":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(AMERICAN_CENTURY_2020));
-                indexytd.add(indexInfoYTD.get(AMERICAN_CENTURY_2030));
-                indexytd.add(indexInfoYTD.get(AMERICAN_CENTURY_2040));
-                indexytd.add(indexInfoYTD.get(AMERICAN_CENTURY_2050));
-                indexytd.add(indexInfoYTD.get(AMERICAN_CENTURY_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(AMERICAN_CENTURY_2020));
-                index1yr.add(indexInfo1Yr.get(AMERICAN_CENTURY_2030));
-                index1yr.add(indexInfo1Yr.get(AMERICAN_CENTURY_2040));
-                index1yr.add(indexInfo1Yr.get(AMERICAN_CENTURY_2050));
-                index1yr.add(indexInfo1Yr.get(AMERICAN_CENTURY_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
-
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
-
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, AmericanList,lineGraph);
 
                 break;
 
             case "Vanguard":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(VANGUARD_2020));
-                indexytd.add(indexInfoYTD.get(VANGUARD_2030));
-                indexytd.add(indexInfoYTD.get(VANGUARD_2040));
-                indexytd.add(indexInfoYTD.get(VANGUARD_2050));
-                indexytd.add(indexInfoYTD.get(VANGUARD_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(VANGUARD_2020));
-                index1yr.add(indexInfo1Yr.get(VANGUARD_2030));
-                index1yr.add(indexInfo1Yr.get(VANGUARD_2040));
-                index1yr.add(indexInfo1Yr.get(VANGUARD_2050));
-                index1yr.add(indexInfo1Yr.get(VANGUARD_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
-
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, VanguardList,lineGraph);
 
                 break;
 
             case "JP Morgan":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(JPMORGAN_2020));
-                indexytd.add(indexInfoYTD.get(JPMORGAN_2030));
-                indexytd.add(indexInfoYTD.get(JPMORGAN_2040));
-                indexytd.add(indexInfoYTD.get(JPMORGAN_2050));
-                indexytd.add(indexInfoYTD.get(JPMORGAN_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(JPMORGAN_2020));
-                index1yr.add(indexInfo1Yr.get(JPMORGAN_2030));
-                index1yr.add(indexInfo1Yr.get(JPMORGAN_2040));
-                index1yr.add(indexInfo1Yr.get(JPMORGAN_2050));
-                index1yr.add(indexInfo1Yr.get(JPMORGAN_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, JpMorganList,lineGraph);
 
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
             case "BlackRock":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(BLACKROCK_2020));
-                indexytd.add(indexInfoYTD.get(BLACKROCK_2030));
-                indexytd.add(indexInfoYTD.get(BLACKROCK_2040));
-                indexytd.add(indexInfoYTD.get(BLACKROCK_2050));
-                indexytd.add(indexInfoYTD.get(BLACKROCK_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(BLACKROCK_2020));
-                index1yr.add(indexInfo1Yr.get(BLACKROCK_2030));
-                index1yr.add(indexInfo1Yr.get(BLACKROCK_2040));
-                index1yr.add(indexInfo1Yr.get(BLACKROCK_2050));
-                index1yr.add(indexInfo1Yr.get(BLACKROCK_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, BlackrockList,lineGraph);
 
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
             case "TRowe Price":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(TROWE_2020));
-                indexytd.add(indexInfoYTD.get(TROWE_2030));
-                indexytd.add(indexInfoYTD.get(TROWE_2040));
-                indexytd.add(indexInfoYTD.get(TROWE_2050));
-                indexytd.add(indexInfoYTD.get(TROWE_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(TROWE_2020));
-                index1yr.add(indexInfo1Yr.get(TROWE_2030));
-                index1yr.add(indexInfo1Yr.get(TROWE_2040));
-                index1yr.add(indexInfo1Yr.get(TROWE_2050));
-                index1yr.add(indexInfo1Yr.get(TROWE_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, TRoweList,lineGraph);
 
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
 
             case "PIMCO":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(PIMCO_2020));
-                indexytd.add(indexInfoYTD.get(PIMCO_2030));
-                indexytd.add(indexInfoYTD.get(PIMCO_2040));
-                indexytd.add(indexInfoYTD.get(PIMCO_2050));
 
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(PIMCO_2020));
-                index1yr.add(indexInfo1Yr.get(PIMCO_2030));
-                index1yr.add(indexInfo1Yr.get(PIMCO_2040));
-                index1yr.add(indexInfo1Yr.get(PIMCO_2050));
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, PimcoList,lineGraph);
 
-
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
-
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
             case "Allianz":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(ALLIANZGI_2020));
-                indexytd.add(indexInfoYTD.get(ALLIANZGI_2030));
-                indexytd.add(indexInfoYTD.get(ALLIANZGI_2040));
-                indexytd.add(indexInfoYTD.get(ALLIANZGI_2050));
 
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(ALLIANZGI_2020));
-                index1yr.add(indexInfo1Yr.get(ALLIANZGI_2030));
-                index1yr.add(indexInfo1Yr.get(ALLIANZGI_2040));
-                index1yr.add(indexInfo1Yr.get(ALLIANZGI_2050));
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, AllianzList,lineGraph);
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
-
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
 
             case "MFS":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(MFS_2020));
-                indexytd.add(indexInfoYTD.get(MFS_2030));
-                indexytd.add(indexInfoYTD.get(MFS_2040));
-                indexytd.add(indexInfoYTD.get(MFS_2050));
-                indexytd.add(indexInfoYTD.get(MFS_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(MFS_2020));
-                index1yr.add(indexInfo1Yr.get(MFS_2030));
-                index1yr.add(indexInfo1Yr.get(MFS_2040));
-                index1yr.add(indexInfo1Yr.get(MFS_2050));
-                index1yr.add(indexInfo1Yr.get(MFS_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, MFSList,lineGraph);
 
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
+                break;
 
 
 
             case "TIAA":
-                ytd = calc.getBenchmarklistytd();
-                yr = calc.getBenchmarklist1yr();
-                indexytd = new ArrayList<>();
-                indexytd.add(indexInfoYTD.get(TIAA_2020));
-                indexytd.add(indexInfoYTD.get(TIAA_2030));
-                indexytd.add(indexInfoYTD.get(TIAA_2040));
-                indexytd.add(indexInfoYTD.get(TIAA_2050));
-                indexytd.add(indexInfoYTD.get(TIAA_2060));
-                index1yr = new ArrayList<>();
-                index1yr.add(indexInfo1Yr.get(TIAA_2020));
-                index1yr.add(indexInfo1Yr.get(TIAA_2030));
-                index1yr.add(indexInfo1Yr.get(TIAA_2040));
-                index1yr.add(indexInfo1Yr.get(TIAA_2050));
-                index1yr.add(indexInfo1Yr.get(TIAA_2060));
 
-                for (int xvalue = 2020, counter = 0;  xvalue <= 2060; counter++,xvalue+=10){
-                    XYChart.Data<Number,Number> benchmarkytd = new XYChart.Data<Number,Number>(xvalue,ytd.get(counter));
-                    XYChart.Data<Number,Number> fundytd = new XYChart.Data<>(xvalue,indexytd.get(counter));
-                    if (indexytd.get(counter) > ytd.get(counter)){
-                        labelAdder(indexytd.get(counter),ytd.get(counter),fundytd);
-                    }
-                    else{
-                        labelAdder(indexytd.get(counter),ytd.get(counter),benchmarkytd);
-                    }
-                    benchmarkYtd.getData().add(benchmarkytd);
-                    fundYtd.getData().add(fundytd);
+                populateData(benchmarkYtd,fundYtd,benchmark1Yr,fund1Yr,ytd,yr,indexytd,index1yr, TIAAList,lineGraph);
 
-
-                    XYChart.Data<Number,Number> benchmark1yr = new XYChart.Data<>(xvalue,yr.get(counter));
-                    XYChart.Data<Number,Number> fund1yr = new XYChart.Data<>(xvalue,index1yr.get(counter));
-                    if (index1yr.get(counter) > yr.get(counter)){
-                        labelAdder(index1yr.get(counter),yr.get(counter),fund1yr);
-                    }
-                    else{
-                        labelAdder(index1yr.get(counter),yr.get(counter),benchmark1yr);
-                    }
-                    benchmark1Yr.getData().add(benchmark1yr);
-                    fund1Yr.getData().add(fund1yr);
-
-                }
-                lineGraph.getData().add(benchmarkYtd);
-                lineGraph.getData().add(fundYtd);
-                lineGraph.getData().add(benchmark1Yr);
-                lineGraph.getData().add(fund1Yr);
-
-
-
+                break;
 
 
         }
